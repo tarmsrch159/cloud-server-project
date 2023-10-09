@@ -50,7 +50,7 @@ db.connect((err) => {
 //   return next();
 // });
 const corsOptions = {
-  origin: 'https://frontend-user-test-deploy-awvw8mtzu-tanachais-projects.vercel.app',
+  origin: 'frontend-user-test-deploy.vercel.app',
   credentials: true,
 };
 
