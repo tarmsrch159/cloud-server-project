@@ -37,25 +37,26 @@ db.connect((err) => {
 });
 
 //allow access for another domain
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://frontend-user-test-deploy-awvw8mtzu-tanachais-projects.vercel.app");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "POST, GET, PUT, PATCH, DELETE, OPTIONS"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Option, Authorization"
-  );
-  return next();
-});
-// const corsOptions = {
-//   origin: 'frontend-user-test-deploy.vercel.app',
-//   credentials: true,
-// };
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "https://frontend-user-test-deploy-awvw8mtzu-tanachais-projects.vercel.app");
+//   res.header(
+//     "Access-Control-Allow-Methods",
+//     "POST, GET, PUT, PATCH, DELETE, OPTIONS"
+//   );
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Content-Type, Option, Authorization"
+//   );
+//   return next();
+// });
+
+const corsOptions = {
+  origin: 'frontend-user-test-deploy.vercel.app',
+  credentials: true,
+};
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.static("public"));
 
 const storage = multer.diskStorage({
